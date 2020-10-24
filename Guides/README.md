@@ -67,5 +67,14 @@ message SearchRequest {
 # Optional Fields And Default Values
 # Enumerations
 ## Reserved Values
+# Using Other Message Types
+## Importing Definitions
+## Using proto3 Message Types
+# Nested Types
+## Groups
+# Updating A Message Type
+# Extensions
+## Nested Extensions
+## Choosing Extension Numbers
 # References
 * https://developers.google.com/protocol-buffers/docs/overview
