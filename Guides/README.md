@@ -62,6 +62,17 @@ message SearchRequest {
 }
 ```
 ## Reserved Fields
+* If you [update](https://github.com/pravsemilo/protocol-buffers-notes/blob/master/Guides/README.md#updating-a-message-type) by removing or commenting, future users can reuse the field number.
+* This can cause compatibility issues when dealing with old versions of `.proto` files.
+* To avoid this, mark your deleted fields as `reserved`.
+* Field numbers and names can be marked as `reserved`.
+* Field names and numbers cannot be mixed in the same `reserved` statement.
+```protobuf
+message Foo {
+	reserved 2, 15, 9 to 11;
+	reserved "foo", "bar";
+}
+```
 ## What's Generated From Your .proto?
 # Scalar Value Types
 # Optional Fields And Default Values
