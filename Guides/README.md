@@ -23,8 +23,44 @@ message SearchRequest {
 * You also cannot use 19000 through 19999 (`FieldDescriptor::kFirstReservedNumber` through `FieldDescriptor::kLastReservedNumber`). These are reserved for Protocol Buffer implementatio.
 * You cannot use previously [reserved](https://github.com/pravsemilo/protocol-buffers-notes/blob/master/Guides/README.md#reserved-fields) field numbers.
 ## Specifying Field Rules
+* Message fields are one of following : 
+	* `required` : Exactly 1.
+	* `optional`: 0 or 1.
+	* `repeated` : 0 or more.
+* `repeated` fields of scalar numeric tupes aren't encoded efficiently. Instead use the special option `[packed=true]`.
+```protobuf
+repeated int32 samples = 4 [packed=true];
+```
+* **Required is forever.**
+	* Be very careful about marking fields as `required`.
+	* Instead consider writing application specific custom validation routines.
 ## Adding More Message Types
+* Multiple message types can be defined in a single `.proto` file.
+```protobuf
+message SearchRequest {
+	required string query = 1;
+	optional int32 page_number = 2;
+	optional int32 result_per_page = 3;
+}
+
+message SearchResponse {
+	...
+}
+```
+* **Combinig Messages leads to bloat.**
+	* While multiple message types (message, enum and service) can be defined in a single `.proto` file, it can lead to dependency bloat when large number of messages with varying dependencies are defined in a single file.
+	* It is recommended to include as few message types per `.proto` file.
 ## Adding Comments
+```protobuf
+/* SearchRequest represents a search query, with pagination options to
+ * indicate which results to include in the response. */
+
+message SearchRequest {
+	required string query = 1;
+	optional int32 page_number = 2;  // Which page number do we want?
+	optional int32 result_per_page = 3;  // Number of results to return per page.
+}
+```
 ## Reserved Fields
 ## What's Generated From Your .proto?
 # Scalar Value Types
