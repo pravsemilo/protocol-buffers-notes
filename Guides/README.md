@@ -110,6 +110,18 @@ message Foo {
 * `string`
 * `bytes`
 # Optional Fields And Default Values
+* A well-formed message may or may not contain an optional element.
+* When a message is parsed, if it doesn't contain an optional element, the corresponding field in the parsed object is set to the default value for that field.
+* Default value can be provided as part of message description.
+```protobuf
+optional int32 result_per_page =3 [default = 10];
+```
+* If the default value is not specified for an optional element, a type-specific default value is used instead.
+	* `string` : Empty string
+	* `bytes` : Empty byte string
+	* `bool` : false
+	* Numeric Types : Zero
+	* Enums : First values listed in enum's type definition.
 # Enumerations
 ## Reserved Values
 # Using Other Message Types
