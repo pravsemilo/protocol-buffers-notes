@@ -73,7 +73,7 @@ message Foo {
 	reserved "foo", "bar";
 }
 ```
-## What's Generated From Your .proto?
+## What's Generated From Your **.proto**?
 # Scalar Value Types
 # Optional Fields And Default Values
 # Enumerations
@@ -87,5 +87,18 @@ message Foo {
 # Extensions
 ## Nested Extensions
 ## Choosing Extension Numbers
+# Oneof
+## Using Oneof
+## Oneof Features
+## Backwards-compatibility Issues
+# Maps
+## Maps Features
+## Backwards compatibility
+# Packages
+## Packages and Name Resolution
+# Definiing Services
+# Options
+## Custom Options
+# Generating Your Classes
 # References
 * https://developers.google.com/protocol-buffers/docs/overview
