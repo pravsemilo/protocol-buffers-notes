@@ -74,7 +74,41 @@ message Foo {
 }
 ```
 ## What's Generated From Your **.proto**?
+* On running the [protocol buffer compiler](https://github.com/pravsemilo/protocol-buffers-notes/blob/master/Guides/README.md#generating-your-classes) on a `.proto` file :
+	* The compiler generates code in your chose language.
+		* Getting and setting field values.
+		* Serializing messages to an output stream.
+		* Parsing messages from an input stream.
 # Scalar Value Types
+* double
+* float
+* int32
+	* Uses variable-length encoding.
+	* Inefficient for encoding negative numbers. Use sint32 instead.
+* int64
+	* Uses variable-length encoding.
+	* Inefficient for encoding negative numbers. Use sint64 instead.
+* uint32
+	* Uses variable-length encoding.
+* uint64
+	* Uses variable-length encoding.
+* sint32
+	* Uses variable-length encoding.
+* sint64
+	* Uses variable-length encoding.
+* fixed32
+	* Always four bytes.
+	* More efficient than uint32 if values are greater than 2^28.
+* fixed64
+	* Always eight bytes.
+	* More efficient than uint64 if values are greater than  2^56.
+* sfixed32
+	* Always four bytes.
+* sfixed64
+	* Always eight bytes.
+* bool
+* string
+* bytes
 # Optional Fields And Default Values
 # Enumerations
 ## Reserved Values
