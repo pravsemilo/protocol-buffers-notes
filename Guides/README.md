@@ -1,4 +1,4 @@
-* Describes how to use the protocl buffer language to structure your protocol buffer data, including `.proto` file syntax and how to generate code from `.proto` files.
+* Describes how to use the protocol buffer language to structure your protocol buffer data, including `.proto` file syntax and how to generate code from `.proto` files.
 * Covers **proto2** version.
 # Defining A Message Type
 * Each field has a name and type.
@@ -20,14 +20,14 @@ message SearchRequest {
 	* Also leave some room for frequently occuring element that might be added in future.
 * Field numbers in range 16 through 2047 take two bytes.
 * The smallest field number you can specify is 1, and the largest is 2^29 - 1, or 536,870,911.
-* You also cannot use 19000 through 19999 (`FieldDescriptor::kFirstReservedNumber` through `FieldDescriptor::kLastReservedNumber`). These are reserved for Protocol Buffer implementatio.
+* You also cannot use 19000 through 19999 (`FieldDescriptor::kFirstReservedNumber` through `FieldDescriptor::kLastReservedNumber`). These are reserved for Protocol Buffer implementation.
 * You cannot use previously [reserved](https://github.com/pravsemilo/protocol-buffers-notes/blob/master/Guides/README.md#reserved-fields) field numbers.
 ## Specifying Field Rules
 * Message fields are one of following : 
 	* `required` : Exactly 1.
 	* `optional`: 0 or 1.
 	* `repeated` : 0 or more.
-* `repeated` fields of scalar numeric tupes aren't encoded efficiently. Instead use the special option `[packed=true]`.
+* `repeated` fields of scalar numeric types aren't encoded efficiently. Instead use the special option `[packed=true]`.
 ```protobuf
 repeated int32 samples = 4 [packed=true];
 ```
