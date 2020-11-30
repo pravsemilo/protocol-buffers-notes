@@ -80,35 +80,35 @@ message Foo {
 		* Serializing messages to an output stream.
 		* Parsing messages from an input stream.
 # Scalar Value Types
-* double
-* float
-* int32
+* `double`
+* `float`
+* `int32`
 	* Uses variable-length encoding.
 	* Inefficient for encoding negative numbers. Use sint32 instead.
-* int64
+* `int64`
 	* Uses variable-length encoding.
 	* Inefficient for encoding negative numbers. Use sint64 instead.
-* uint32
+* `uint32`
 	* Uses variable-length encoding.
-* uint64
+* `uint64`
 	* Uses variable-length encoding.
-* sint32
+* `sint32`
 	* Uses variable-length encoding.
-* sint64
+* `sint64`
 	* Uses variable-length encoding.
-* fixed32
+* `fixed32`
 	* Always four bytes.
 	* More efficient than uint32 if values are greater than 2^28.
-* fixed64
+* `fixed64`
 	* Always eight bytes.
 	* More efficient than uint64 if values are greater than  2^56.
-* sfixed32
+* `sfixed32`
 	* Always four bytes.
-* sfixed64
+* `sfixed64`
 	* Always eight bytes.
-* bool
-* string
-* bytes
+* `bool`
+* `string`
+* `bytes`
 # Optional Fields And Default Values
 # Enumerations
 ## Reserved Values
