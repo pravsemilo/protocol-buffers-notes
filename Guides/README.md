@@ -47,7 +47,7 @@ message SearchResponse {
 	...
 }
 ```
-* **Combinig Messages leads to bloat.**
+* **Combining Messages leads to bloat.**
 	* While multiple message types (message, enum and service) can be defined in a single `.proto` file, it can lead to dependency bloat when large number of messages with varying dependencies are defined in a single file.
 	* It is recommended to include as few message types per `.proto` file.
 ## Adding Comments
