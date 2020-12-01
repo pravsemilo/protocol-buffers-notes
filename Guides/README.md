@@ -123,6 +123,38 @@ optional int32 result_per_page =3 [default = 10];
 	* Numeric Types : Zero
 	* Enums : First values listed in enum's type definition.
 # Enumerations
+```protobuf
+message SearchRequest {
+	required string query = 1;
+	optional int32 page_number = 2;
+	optional int32 result_per_page = 3 [default = 10];
+	enum Corpus {
+		UNIVERSAL = 0;
+		WEB = 1;
+		IMAGES = 2;
+		LOCAL = 3;
+		NEWS = 4;
+		PRODUCTS = 5;
+		VIDEO = 6;
+	}
+	optional Corpus corpus = 4 [default = UNIVERSAL];
+}
+```
+* Aliases allow to assign same value to different enum constants.
+	* To do this set the `allow_alias` option to `true`.
+	* Otherwise compiler will generate an error message.
+```protobuf
+enum EnumAllowingAlias {
+	option allow_alias = true;
+	UNKNOWN = 0;
+	STARTED = 1;
+	RUNNING = 1;
+}
+```
+* Enumerator constants must be in the range of a 32-bit integer.
+* Since `enum` values use [varint encoding](https://github.com/pravsemilo/protocol-buffers-notes/blob/master/Guides/Encoding.md) on the wire, negative values are inefficient and not recommended.
+* You can define `enum`s within a message definition or outside. These `enum`s can be reused in any message definition in your `.proto` file.
+* You can also use an `enum` type declared in one messae as the type of a field in a different mesage using the syntax `_MessageType_._EnumType_`.
 ## Reserved Values
 # Using Other Message Types
 ## Importing Definitions
