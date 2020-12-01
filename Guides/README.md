@@ -156,6 +156,12 @@ enum EnumAllowingAlias {
 * You can define `enum`s within a message definition or outside. These `enum`s can be reused in any message definition in your `.proto` file.
 * You can also use an `enum` type declared in one messae as the type of a field in a different mesage using the syntax `_MessageType_._EnumType_`.
 ## Reserved Values
+```protobuf
+enum Foo {
+	reserved 2, 15, 9 to 11, 40 to max;
+	resrved "FOO", "BAR";
+}
+```
 # Using Other Message Types
 ## Importing Definitions
 ## Using proto3 Message Types
